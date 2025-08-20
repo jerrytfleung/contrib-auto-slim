@@ -119,7 +119,7 @@ class SlimInstrumentation
                         // Propagate response baggage to response, if ResponseBaggagePropagator is present
                         if (class_exists('OpenTelemetry\Contrib\Propagation\ResponseBaggage\ResponseBaggagePropagator')) {
                             $prop = new \OpenTelemetry\Contrib\Propagation\ResponseBaggage\ResponseBaggagePropagator();
-                            $prop->inject($response, ResponsePropagationSetter::instance(), $scope->context());
+                            $prop->inject($response, PsrResponsePropagationSetter::instance(), $scope->context());
                         }
                     }
                 }
